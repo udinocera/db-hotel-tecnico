@@ -1,0 +1,53 @@
+1)
+SELECT *
+FROM ospiti
+WHERE document_type = 'CI';
+
+2)
+SELECT *
+FROM ospiti
+WHERE date_of_birth > 1988-01-01;
+
+3)
+SELECT *
+FROM ospiti
+WHERE name LIKE 'D%';
+
+4)
+SELECT SUM(price) 
+FROM pagamenti
+WHERE status = 'accepted';
+
+5)
+SELECT MAX(price) 
+FROM pagamenti
+WHERE status = 'accepted';
+
+6)
+SELECT SUM(beds)
+FROM stanze
+
+7)
+SELECT SUM(price)
+FROM pagamenti
+GROUP BY status;
+
+8)
+SELECT stanza_id AS stanza, COUNT(*) AS numero_di_prenotazioni
+FROM prenotazioni
+GROUP BY stanza_id;
+
+9)
+SELECT *
+FROM ospiti
+JOIN prenotazioni_has_ospiti
+ON ospiti.id = prenotazioni_has_ospiti.ospite_id;
+
+10)
+SELECT SUM(price) AS somma_prezzi_stanze_primo_piano
+FROM pagamenti
+JOIN prenotazioni 
+ON pagamenti.prenotazione_id = prenotazioni.id
+JOIN stanze
+ON prenotazioni.stanza_id = stanze.id
+WHERE floor =1;
