@@ -1,0 +1,50 @@
+CREATE TABLE [dbo].[Camere]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [numero_stanza] SMALLINT NOT NULL, 
+    [piano_stanza] TINYINT NOT NULL, 
+    [numero_letti] TINYINT NOT NULL
+)
+
+
+CREATE TABLE [dbo].[Ospiti]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [nome_ospite] VARCHAR(40) NOT NULL, 
+    [cognome_ospite] VARCHAR(30) NOT NULL, 
+    [data_di_nascita] DATE NOT NULL, 
+    [documento_riconoscimento] VARCHAR(30) NOT NULL, 
+    [documento_numero] VARCHAR(30) NOT NULL
+)
+
+
+CREATE TABLE [dbo].[Configurazioni]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [titolo] VARCHAR(50) NOT NULL, 
+    [descrizione] TEXT NOT NULL, 
+)
+
+
+CREATE TABLE [dbo].[Prenotazioni]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [id_configuration] INT NOT NULL, 
+    [importo_totale] DECIMAL(6, 2) NOT NULL, 
+    [durata_soggiorno] TINYINT NOT NULL, 
+    [numero_prenotazione] TINYINT NOT NULL, 
+
+DA TERMINARE
+	
+)
+
+CREATE TABLE [dbo].[Pagamenti]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [prenotazione_id] INT NOT NULL, 
+    [status_pagamento] VARCHAR(25) NOT NULL, 
+    [metodo_di_pagamento] VARCHAR(50) NOT NULL, 
+
+Da Terminare
+
+)
